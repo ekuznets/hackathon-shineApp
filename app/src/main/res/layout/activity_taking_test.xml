@@ -10,11 +10,11 @@
             android:id="@+id/simple_list_item_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.82"
             android:orientation="vertical" >
             <ListView
                 android:id="@+id/list"
-                android:layout_width="match_parent"
+                android:layout_width="295dp"
                 android:layout_height="wrap_content" >
             </ListView>
         </LinearLayout>
@@ -23,7 +23,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <Switch
                 android:layout_width="match_parent"
@@ -56,6 +57,17 @@
                 android:layout_marginBottom="36dp"
                 android:layout_above="@+id/switch2"
                 android:layout_alignParentStart="true" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.07" />
+
+            <Button
+                android:text="submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Submit" />
 
         </LinearLayout>
     </LinearLayout>
