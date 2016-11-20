@@ -21,7 +21,12 @@
             android:label="@string/title_activity_taking_test"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LinksActivity" />
-        <activity android:name=".aboutUsActivity"></activity>
+        <activity android:name=".aboutUsActivity" />
+        <activity android:name=".bored" />
+        <activity android:name=".time_management" />
+        <activity android:name=".motivation" />
+        <activity android:name=".emotion" />
+        <activity android:name=".sos"></activity>
     </application>
 
 </manifest>

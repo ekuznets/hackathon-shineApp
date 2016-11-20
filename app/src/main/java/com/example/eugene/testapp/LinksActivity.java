@@ -14,9 +14,29 @@ import android.widget.Toast;
 
 public class LinksActivity extends AppCompatActivity {
     ListView listView;
-
-
     private resourcesPair  banana = new resourcesPair();
+
+    public void bored(View view) {
+        Intent intent = new Intent(this, bored.class);
+        startActivity(intent);
+    }
+    public void time_management(View view) {
+        Intent intent = new Intent(this, time_management.class);
+        startActivity(intent);
+    }
+    public void sos(View view) {
+        Intent intent = new Intent(this, sos.class);
+        startActivity(intent);
+    }
+    public void emotion(View view) {
+        Intent intent = new Intent(this, emotion.class);
+        startActivity(intent);
+    }
+    public void motivation(View view) {
+        Intent intent = new Intent(this, motivation.class);
+        startActivity(intent);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,26 +45,55 @@ public class LinksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_links);
         getSupportActionBar().setTitle("Links for you <3");
 
+
         // Get ListView object from xml
         listView = (ListView) findViewById(R.id.list);
 
+        String input = "11111";
 
-        banana.link = new String[5];
-        banana.text = new String[5];
-        banana.link[0] = "http://www.cmha.ca/mental-health/understanding-mental-illness";
-        banana.text[0] = "Understanding Mental Illnesses";
-        banana.link[1] = "http://www.cmha.ca/mental_health/mental-health-meter/#.WDCkzNUrKpp";
-        banana.text[1] = "Mental Health Meter";
+        int size =0;
+        int counter = 0;
+        int length_string = input.length();
 
-        // Defined Array values to show in ListView
-//        String[] values = new String[] {
-//                "Understanding Mental Illnesses"
-//        };
-//
-//        String[] links = new String[] {
-//                "http://www.cmha.ca/mental-health/understanding-mental-illness/"
-//        };
+        for(int i =0; i < length_string ; i++)
+        {
+            if (input.charAt(i) == '1')
+            {
+                size++;
+            }
+        }
 
+        String[] activity = new String[size];
+
+        if (input.charAt(0) == '1')
+        {
+            activity[counter] = "Bored";
+            counter++;
+        }
+
+        if (input.charAt(1) == '1')
+        {
+            activity[counter] = "Time Management";
+            counter++;
+        }
+
+        if (input.charAt(2) == '1')
+        {
+            activity[counter] = "Motivation";
+            counter++;
+        }
+
+        if (input.charAt(3) == '1')
+        {
+            activity[counter] = "Emotionally Overwhelmed";
+            counter++;
+        }
+
+        if (input.charAt(4) == '1')
+        {
+            activity[counter] = "SOS";
+            //counter++;
+        }
 
         // Define a new Adapter
         // First parameter - Context
@@ -53,7 +102,7 @@ public class LinksActivity extends AppCompatActivity {
         // Forth - the Array of data
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, banana.text);
+                android.R.layout.simple_list_item_1, android.R.id.text1, activity);
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
@@ -65,19 +114,27 @@ public class LinksActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                // ListView Clicked item index
-                int itemPosition     = position;
+                if (position==0)
+                {
+                    bored(view);
+                }
+                if (position==1)
+                {
+                    time_management(view);
+                }
+                if (position==2)
+                {
+                    motivation(view);
+                }
+                if (position==3)
+                {
+                    emotion(view);
+                }
+                if (position==4)
+                {
+                    sos(view);
+                }
 
-                // ListView Clicked item value
-                //String  itemValue    = (String) listView.getItemAtPosition(position);
-
-                Uri uri = Uri.parse(banana.link[itemPosition]); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                // Show Alert
-//                Toast.makeText(getApplicationContext(),
-//                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-//                        .show();
 
             }
 
@@ -87,4 +144,48 @@ public class LinksActivity extends AppCompatActivity {
         finish();
         return true;
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
